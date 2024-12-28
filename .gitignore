@@ -1,0 +1,34 @@
+﻿# Exclude Terraform state files
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# Exclude Terraform crash logs
+crash.log
+
+# Exclude Terraform plan files
+*.tfplan
+
+# Exclude Terraform provider plugins
+.terraform/
+
+# Exclude override files, which are used to customize settings
+override.tf
+override.tf.json
+
+# Exclude personal user override files
+*_override.tf
+*_override.tf.json
+
+# Exclude sensitive variable files
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Exclude log files
+*.log
+
+# Ignore lock file
+.terraform.lock.hcl
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json

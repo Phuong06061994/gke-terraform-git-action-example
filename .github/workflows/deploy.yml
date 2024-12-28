@@ -1,0 +1,57 @@
+name: Terraform Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    # Checkout the repository
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    
+    
+
+    # Set up Google Cloud credentials
+    - uses: 'google-github-actions/auth@v2'
+      with:
+        project_id: ${{secrets.GCP_PROJECT_ID}}  # Ensure this secret exists
+        workload_identity_provider: ${{ steps.terraform.outputs.provider_name }}
+        service_account: ${{ steps.terraform.outputs.service_account_email }}
+        audience: "https://iam.googleapis.com/"
+
+    # Setup Terraform CLI
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.10.1
+
+    # Terraform Init
+    - name: Terraform Init
+      run: terraform init
+
+    # Capture Terraform Output for Project ID and Provider Name
+    - name: Capture Terraform Outputs
+      id: output
+      run: |
+        echo "PROJECT_ID=$(terraform output -raw project_id)" >> $GITHUB_ENV
+        echo "PROVIDER_NAME=$(terraform output -raw provider_name)" >> $GITHUB_ENV
+
+    # Print Terraform Outputs
+    - name: Print Terraform Outputs
+      run: |
+        echo "The Project ID is $PROJECT_ID"
+        echo "The Provider Name is $PROVIDER_NAME"
+
+    # Terraform Apply
+    - name: Terraform Apply
+      run: terraform apply -auto-approve
+
+    

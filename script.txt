@@ -1,0 +1,5 @@
+
+gcloud iam service-accounts add-iam-policy-binding "github@devops-cms-demo-445215.iam.gserviceaccount.com" 
+  --project="devops-cms-demo-445215" 
+  --role="roles/iam.workloadIdentityUser" 
+  --member="principalSet://iam.googleapis.com/projects/533482282993/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider"
