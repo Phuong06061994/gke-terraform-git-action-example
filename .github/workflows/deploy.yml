@@ -37,6 +37,6 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var-file="/gke-terraform-git-action-example/terraform.tfvars"
+      run: terraform apply -auto-approve -var-file="terraform.tfvars"
 
     
