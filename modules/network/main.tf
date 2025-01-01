@@ -18,4 +18,5 @@ resource "google_compute_subnetwork" "subnet" {
     range_name    = var.pod_range_name
     ip_cidr_range = var.pod_range_ip
   }
+  depends_on    = [google_compute_network.vpc]
 }

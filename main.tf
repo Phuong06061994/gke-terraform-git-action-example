@@ -6,20 +6,14 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "phuongnv63-terraform-state" # GCS bucket where the state is stored
-    prefix = "terraform/state"            # Path in the bucket for state
+    bucket = "phuongnv63-terraform-state"  # GCS bucket where the state is stored
+    prefix = "terraform/state" # Path in the bucket for state
   }
 }
 
 provider "google" {
   project = var.project_id
   region  = var.region
-}
-
-module "workload_identity_pool" {
-  source     = "./modules/workload-identity-pool"
-  project_id = var.project_id
-  github_repository = var.github_repository
 }
 
 module "network" {
@@ -39,7 +33,7 @@ module "gke_cluster" {
   pod_range_name     = module.network.pod_range_name
   service_range_name = module.network.service_range_name
   depends_on = [
-    module.network.public_subnets
+    module.network
   ]
 }
 

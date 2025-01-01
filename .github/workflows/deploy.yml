@@ -23,8 +23,8 @@ jobs:
     - uses: 'google-github-actions/auth@v2'
       with:
         project_id: ${{secrets.GCP_PROJECT_ID}}  # Ensure this secret exists
-        workload_identity_provider: ${{ steps.terraform.outputs.provider_name }}
-        service_account: ${{ steps.terraform.outputs.service_account_email }}
+        workload_identity_provider: ${{secrets.PROVIDER_NAME}}
+        service_account: ${{secrets.SERVICE_ACCOUNT_EMAIL}}
         audience: "https://iam.googleapis.com/"
 
     # Setup Terraform CLI

@@ -37,3 +37,7 @@ variable "private_subnet_cidrs" {
 variable "github_repository" {
   type = string
 }
+
+variable "bucket_name" {
+  type = string
+}

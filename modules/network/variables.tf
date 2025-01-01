@@ -50,3 +50,4 @@ variable "subnet_name_gke" {
   type = string
   default = "subnet-gke"
 }
+

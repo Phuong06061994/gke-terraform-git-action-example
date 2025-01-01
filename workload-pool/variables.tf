@@ -48,3 +48,6 @@ variable "provider_name" {
 variable "github_repository" {
   type = string
 }
+variable "region" {
+  type = string
+}
