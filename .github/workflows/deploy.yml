@@ -36,19 +36,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    # Capture Terraform Output for Project ID and Provider Name
-    - name: Capture Terraform Outputs
-      id: output
-      run: |
-        echo "PROJECT_ID=$(terraform output -raw project_id)" >> $GITHUB_ENV
-        echo "PROVIDER_NAME=$(terraform output -raw provider_name)" >> $GITHUB_ENV
-
-    # Print Terraform Outputs
-    - name: Print Terraform Outputs
-      run: |
-        echo "The Project ID is $PROJECT_ID"
-        echo "The Provider Name is $PROVIDER_NAME"
-
     # Terraform Apply
     - name: Terraform Apply
       run: terraform apply -auto-approve

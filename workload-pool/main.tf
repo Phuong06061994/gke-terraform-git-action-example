@@ -30,14 +30,17 @@ resource "google_project_iam_member" "role_binding" {
   role    = each.value         
   member  = "serviceAccount:${google_service_account.github_service_account.email}"
 }
-# Workload Identity Pool
-resource "google_iam_workload_identity_pool" "github_actions_pool" {
-  project                  = var.project_id
-  workload_identity_pool_id = "${substr(var.github_actions_pool_id, 0, 20)}-${formatdate("YYYYMMDDHH", timestamp())}"
-  display_name              = var.github_actions_pool_name
-  description               = var.github_actions_pool_description
-  
+
+resource "random_id" "random_number" {
+  byte_length = 3  # 3 bytes generate 6 characters in hexadecimal format
 }
+
+resource "google_iam_workload_identity_pool" "github_actions_pool" {
+  workload_identity_pool_id = "${var.github_actions_pool_id}-${random_id.random_number.hex}"
+  display_name             = var.github_actions_pool_name
+  description              = var.github_actions_pool_description
+}
+
 # Workload Identity Pool Provider
 resource "google_iam_workload_identity_pool_provider" "github_provider" {
   workload_identity_pool_id          = google_iam_workload_identity_pool.github_actions_pool.workload_identity_pool_id
