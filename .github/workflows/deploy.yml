@@ -25,7 +25,6 @@ jobs:
         project_id: ${{secrets.GCP_PROJECT_ID}}  # Ensure this secret exists
         workload_identity_provider: ${{secrets.PROVIDER_NAME}}
         service_account: ${{secrets.SERVICE_ACCOUNT_EMAIL}}
-        audience: "https://iam.googleapis.com/"
 
     # Setup Terraform CLI
     - name: Setup Terraform
