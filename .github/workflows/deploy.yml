@@ -22,7 +22,6 @@ jobs:
     # Set up Google Cloud credentials
     - uses: 'google-github-actions/auth@v2'
       with:
-        project_id: ${{secrets.GCP_PROJECT_ID}}  # Ensure this secret exists
         workload_identity_provider: ${{secrets.PROVIDER_NAME}}
         service_account: ${{secrets.SERVICE_ACCOUNT_EMAIL}}
 
@@ -38,6 +37,6 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: terraform apply -auto-approve -var-file="terraform.tfvars"
 
     
