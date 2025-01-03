@@ -19,7 +19,8 @@ variable "roles" {
     "roles/iam.workloadIdentityPoolAdmin",
     "roles/container.admin",
     "roles/iam.serviceAccountAdmin",
-    "roles/compute.networkAdmin"
+    "roles/compute.networkAdmin",
+    "roles/iam.serviceAccountUser"
   ]
 }
 
