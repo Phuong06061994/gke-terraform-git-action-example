@@ -9,3 +9,11 @@ output "provider_name" {
 output "github_repository" {
   value = var.github_repository
 }
+
+output "region" {
+  value = var.region
+}
+
+output "project_id" {
+  value = var.project_id
+}

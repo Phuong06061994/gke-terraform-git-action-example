@@ -41,6 +41,6 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var-file="terraform.tfvars"
+      run: terraform apply -auto-approve -var 'project_id=${{secrets.PROJECT_ID}}' -var 'region=${{secrets.REGION}}'
 
     

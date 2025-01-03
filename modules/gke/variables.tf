@@ -34,11 +34,7 @@ variable "disk_size_gb" {
 variable "machine_type" {
   default = "e2-medium"
 }
-variable "zone" {
-  description = "Zone for zonal resources"
-  type        = string
-  default     = "asia-southeast1-a"
-}
+
 variable "project_id" {
   description = "The GCP project ID"
   type        = string
