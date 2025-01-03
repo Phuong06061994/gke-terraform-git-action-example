@@ -18,8 +18,8 @@ variable "roles" {
     "roles/storage.admin",
     "roles/iam.workloadIdentityPoolAdmin",
     "roles/container.admin",
-    "roles/iam.workloadIdentityPoolAdmin",
-    "roles/iam.serviceAccountAdmin"
+    "roles/iam.serviceAccountAdmin",
+    "roles/compute.networkAdmin"
   ]
 }
 
