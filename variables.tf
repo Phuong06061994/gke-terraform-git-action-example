@@ -14,6 +14,3 @@ variable "network_name" {
   default     = "gke-demo-vpc"
 }
 
-variable "github_repository" {
-  type = string
-}
