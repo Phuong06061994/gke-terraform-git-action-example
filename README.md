@@ -63,7 +63,7 @@ This flow automates the deployment of a GKE cluster using Terraform.
 **How to Run:**
 
 1. Push or merge changes to the main branch.
-2. The gke.yml workflow will execute.
+2. The deploy.yml in .github/workflows will execute.
 
 ---
 
