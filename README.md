@@ -38,29 +38,6 @@ github_repository  = "<YOUR_GITHUB_USERNAME/REPOSITORY_NAME>"
 - **region**: The region where resources will be deployed (e.g., us-central1).
 - **github_repository**: The GitHub repository name for Workload Identity binding (e.g., Phuong06061994/gke-terraform-git-action-example).
 
----
-
-### 2. Repository Structure
-
-plaintext
-├── main.tf                      # Main entry point for Terraform configurations.
-├── modules                      # Contains reusable Terraform modules.
-│   ├── gke                     # Module for creating GKE clusters.
-│   ├── network                 # Module for setting up the VPC and subnets.
-│   └── workload_identity       # Module for setting up Workload Identity Provider and Service Account.
-├── .github/workflows            # GitHub Actions workflows.
-│   ├── workload-identity.yml   # Automates creation of Workload Identity Provider and Service Account.
-│   └── gke.yml                 # Automates GKE cluster deployment.
-├── variables.tf                 # Input variable definitions.
-├── outputs.tf                   # Output values from the Terraform configuration.
-├── terraform.tfvars             # User-defined variables.
-├── script.sh                    # Script to create Workload Identity Provider and Service Account.
-└── README.md                    # Documentation (this file).
-
-
-
----
-
 ### 3. Flows
 
 #### Flow 1: Workload Identity Provider & Service Account
