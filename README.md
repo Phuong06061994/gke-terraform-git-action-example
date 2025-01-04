@@ -38,7 +38,7 @@ github_repository  = "<YOUR_GITHUB_USERNAME/REPOSITORY_NAME>"
 - **region**: The region where resources will be deployed (e.g., us-central1).
 - **github_repository**: The GitHub repository name for Workload Identity binding (e.g., Phuong06061994/gke-terraform-git-action-example).
 
-### 3. Flows
+### 2. Flows
 
 #### Flow 1: Workload Identity Provider & Service Account
 This flow automates the creation of:
@@ -68,7 +68,7 @@ This flow automates the deployment of a GKE cluster using Terraform.
 
 ---
 
-### 4. Usage
+### 3. Usage
 
 1. Clone this repository:
    
