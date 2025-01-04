@@ -56,7 +56,6 @@ bash
    ./script.sh
 
 
-3. Push or merge changes to the main branch to trigger the workload-identity.yml workflow.
 
 #### Flow 2: GKE Cluster Deployment
 This flow automates the deployment of a GKE cluster using Terraform.
