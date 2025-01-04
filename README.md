@@ -98,7 +98,3 @@ bash
 - Monitor the workflows in the "Actions" tab of your GitHub repository for progress and debugging.
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
